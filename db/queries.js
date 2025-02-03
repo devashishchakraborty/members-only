@@ -10,6 +10,13 @@ const getUser = async (id) => {
   return rows[0];
 };
 
+const getUserByEmail = async (email) => {
+  const { rows } = await pool.query("SELECT * FROM users WHERE email = $1", [
+    email,
+  ]);
+  return rows[0];
+};
+
 const insertUser = async (user) => {
   await pool.query(
     "INSERT INTO users (firstname, lastname, email, password) VALUES ($1, $2, $3, $4)",
@@ -27,7 +34,6 @@ const updateUser = async (userId, user) => {
 const deleteUser = async (id) => {
   await pool.query("DELETE FROM users WHERE id = $1", [id]);
 };
-
 
 const getMessagesByCreatorId = async (creatorId) => {
   const { rows } = await pool.query(
@@ -55,6 +61,7 @@ const deleteMessage = async (id) => {
 
 export default {
   getUser,
+  getUserByEmail,
   getAllUsers,
   insertUser,
   updateUser,
