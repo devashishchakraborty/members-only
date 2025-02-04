@@ -1,0 +1,16 @@
+<header>
+  <a href="/" class="mainLogo">
+    <img src="./members-only.svg" alt="Inventory Logo" />
+    <h1>Members Only</h1>
+  </a>
+  <nav>
+    <a href="/">Home</a>
+    <% if (locals.user) { %>
+      <a href="/join">Join Club</a>
+      <a href="/messages/add">Create new Message</a>
+    <% } else { %>
+      <a href="/login">Login</a>
+      <a href="/sign-up">Create new account</a>
+    <% } %> 
+  </nav>
+</header>

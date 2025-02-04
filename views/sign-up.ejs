@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-  <h1>Sign Up</h1>
-  <form action="" method="POST">
-    <label for="username">Username</label>
-    <input id="username" name="username" placeholder="username" type="text" />
-    <label for="password">Password</label>
-    <input id="password" name="password" type="password" />
-    <button>Sign Up</button>
-  </form>
-</body>
+  <head>
+    <%- include("partials/head") %>
+  </head>
+  <body>
+    <div class="appContainer">
+      <%- include("partials/header") %>
+      <main>
+        <div class="formContainer">
+          <h1>Create new account</h1>
+          <form action="/sign-up" method="post">
+            <div>
+              <label for="firstname">First Name: </label>
+              <input type="text" name="firstname" id="firstname" required />
+            </div>
+            <div>
+              <label for="lastname">Last Name: </label>
+              <input type="text" name="lastname" id="lastname" required />
+            </div>
+            <div>
+              <label for="email">Email: </label>
+              <input type="email" name="email" id="email" required />
+            </div>
+            <div>
+              <label for="password">Password: </label>
+              <input type="password" name="password" id="password" required />
+            </div>
+            <div>
+              <label for="confirmPassword">Confirm Password: </label>
+              <input
+                type="password"
+                name="confirmPassword"
+                id="confirmPassword"
+                required
+              />
+            </div>
+            <button type="submit" class="submitBtn">Submit</button>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>
