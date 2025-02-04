@@ -1,0 +1,159 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  text-decoration: inherit;
+  color: inherit;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+#root {
+  height: 100%;
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  --dark-blue: #213547;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Header */
+header {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  height: 10vh;
+  padding: 0px 64px;
+  background-color: var(--dark-blue);
+  color: white;
+  justify-content: space-between;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+  a,
+  a:hover {
+    color: white;
+  }
+}
+
+.mainLogo {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  img {
+    height: 2em;
+    width: 2em;
+  }
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 1.2em;
+}
+
+/* Main Section */
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  padding: 64px;
+}
+
+.signInBtns {
+  display: flex;
+  gap: 16px;
+  margin-top: 3em;
+}
+
+/* Form Section */
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  border: 2px solid lightgray;
+  border-radius: 8px;
+  gap: 16px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 1.1em;
+
+    div {
+      display: flex;
+      gap: 8px;
+      align-items: start;
+      justify-content: space-between;
+    }
+  }
+
+  input {
+    padding: 4px;
+    width: 20rem;
+    resize: none;
+  }
+}
+
+.signInBtns,
+.formContainer {
+  button {
+    color: var(--dark-blue);
+    border: 2px solid var(--dark-blue);
+    background-color: white;
+    font-weight: bold;
+    min-width: max-content;
+    transition: 0.25s ease background-color, 0.25s ease color,
+      0.25s ease transform;
+    flex: 1;
+  }
+
+  button:hover {
+    color: white;
+    background-color: var(--dark-blue);
+  }
+
+  button:active {
+    transform: scale(0.95);
+  }
+}
