@@ -1,10 +1,9 @@
 import asyncHandler from "express-async-handler";
 import queries from "../db/queries.js";
 import bcrypt from "bcryptjs";
-import "../auth/authConfig.js";
 
-const userLoginGet = (req, res) => res.render("index", { user: req.user });
-const userSignUpGet = (req, res) => res.render("sign-up-form");
+const userLoginGet = (req, res) => res.render("login", { user: req.user });
+const userSignUpGet = (req, res) => res.render("sign-up");
 const userLogoutGet = (req, res, next) => {
   req.logout((err) => {
     if (err) return next(err);
