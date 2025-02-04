@@ -8,8 +8,7 @@
       <%- include("partials/header") %>
       <main>
         <% if (locals.user) {%>
-        <h1>WELCOME BACK <%= user.username %></h1>
-        <a href="/log-out">LOG OUT</a>
+        <h1>WELCOME BACK <%= user.firstname %></h1>
         <% } else { %>
         <h1>Welcome to the Members Only Website</h1>
         <div class="signInBtns">

@@ -9,23 +9,29 @@ import "dotenv/config";
 
 const setAuthSession = () => {
   passport.use(
-    new LocalStrategy(async (email, password, done) => {
-      try {
-        const user = await queries.getUserByEmail(email);
+    new LocalStrategy(
+      {
+        usernameField: "email",
+        passwordField: "password",
+      },
+      async (email, password, done) => {
+        try {
+          const user = await queries.getUserByEmail(email);
 
-        if (!user) {
-          return done(null, false, { message: "Incorrect email" });
+          if (!user) {
+            return done(null, false, { message: "Incorrect email" });
+          }
+          const match = await bcrypt.compare(password, user.password);
+          if (!match) {
+            // passwords do not match!
+            return done(null, false, { message: "Incorrect password" });
+          }
+          return done(null, user);
+        } catch (err) {
+          return done(err);
         }
-        const match = await bcrypt.compare(password, user.password);
-        if (!match) {
-          // passwords do not match!
-          return done(null, false, { message: "Incorrect password" });
-        }
-        return done(null, user);
-      } catch (err) {
-        return done(err);
       }
-    })
+    )
   );
 
   passport.serializeUser((user, done) => done(null, user.id));
@@ -50,6 +56,5 @@ const setAuthSession = () => {
     },
   });
 };
-
 
 export default setAuthSession;
