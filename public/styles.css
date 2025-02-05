@@ -19,9 +19,10 @@ body {
 }
 
 a {
-  font-weight: 500;
+  font-weight: bold;
   text-decoration: inherit;
-  color: inherit;
+  color: var(--dark-blue);
+  filter: brightness(1.5);
 }
 
 button {
@@ -128,10 +129,15 @@ main {
     }
   }
 
-  input {
+  input, textarea {
     padding: 4px;
     width: 20rem;
     resize: none;
+  }
+
+  textarea {
+    min-height: 10em;
+    field-sizing: content;
   }
 }
 
@@ -156,4 +162,26 @@ main {
   button:active {
     transform: scale(0.95);
   }
+}
+
+
+/* Messages Section */
+.messagesContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  gap: 16px;
+}
+
+.messagesContainer .message {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid lightgray;
+  border-radius: 16px;
+  padding: 24px;
+  text-decoration: none;
+  color: darkslategray;
+}
+
+.messagesContainer .message:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
 }
