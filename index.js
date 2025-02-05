@@ -3,6 +3,7 @@ import { fileURLToPath } from "url";
 import express, { urlencoded } from "express";
 import passport from "passport";
 import indexRouter from "./routes/indexRouter.js";
+import messageRouter from "./routes/messageRouter.js";
 import setAuthSession from "./auth/authConfig.js";
 
 // Get __dirname in ES6
@@ -17,6 +18,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(setAuthSession());
 app.use(passport.session());
 app.use(urlencoded({ extended: false }));
+
+app.use("/messages", messageRouter)
 app.use("/", indexRouter);
 
 
