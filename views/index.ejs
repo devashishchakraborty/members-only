@@ -10,10 +10,42 @@
         <% if (locals.user) {%>
         <h1>WELCOME BACK <%= user.firstname %></h1>
         <% } else { %>
-        <h1>Welcome to the Members Only Website</h1>
-        <div class="signInBtns">
-          <a href="/login"><button>Login</button></a>
-          <a href="/sign-up"><button>Sign Up</button></a>
+        <div class="description">
+          <p>
+            Unlock the secrets of an exclusive community where only members can
+            see who's behind the messages. Join the conversation, share your
+            thoughts, and connect with others—but remember, not everything is
+            visible to the public eye.
+          </p>
+
+          <h2>What Makes This Community Special?</h2>
+          <p>
+            <b>Exclusive Content</b>: Only logged-in members can see the authors
+            of posts. Guests can read messages but won't know who wrote them.
+          </p>
+          <p>
+            <b>Share Your Thoughts</b>: Post your own messages and join the
+            discussion.
+          </p>
+          <p>
+            <b>Become a Member</b>: Sign up today to unlock the full experience
+            and see who's behind the posts.
+          </p>
+          <h2>How It Works</h2>
+          <p>
+            <b>Members</b>: Log in to reveal the authors and post your own
+            messages.
+          </p>
+          <p>
+            <b>Admins</b>: Manage the community and ensure everything runs
+            smoothly.
+          </p>
+          <h2>Join the Community</h2>
+          <p>
+            Ready to dive in? <a href="/sign-up">Sign up</a> to become a member or
+            <a href="/login">log in</a> if you're already part of the club. Let's build a space where
+            everyone can share freely—but only members know the full story.
+          </p>
         </div>
         <%}%>
       </main>
