@@ -3,7 +3,7 @@
 ## Description
 
 - "Members Only" is a basic microblogging application built as part of The Odin Project's curriculum. The project focuses on implementing authentication and authorization features, allowing users to create posts and view posts from other users. Only authenticated users can see the authors of the posts, while unauthenticated users can only view the content without knowing who wrote it.
-- Live Link -> [Here]()
+- Live Link -> [Here](https://members-only-htrq.onrender.com)
 
 This project was built using **Express.js** and incorporates concepts such as:
 - User authentication (using `passport.js` or custom authentication)
@@ -11,7 +11,9 @@ This project was built using **Express.js** and incorporates concepts such as:
 - Database associations (e.g., users and posts)
 - MVC architecture
 
-
+## Screenshots
+![image](https://github.com/user-attachments/assets/b9b114ba-40ee-4547-a465-4c2145d75c2c)
+![image](https://github.com/user-attachments/assets/1bf9cf27-baba-49d5-a2c6-615fb2cd2b6a)
 ## Features
 
 - **User Authentication**: Users can sign up, log in, and log out.
