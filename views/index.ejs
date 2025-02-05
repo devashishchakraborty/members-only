@@ -8,7 +8,26 @@
       <%- include("partials/header") %>
       <main>
         <% if (locals.user) {%>
-        <h1>WELCOME BACK <%= user.firstname %></h1>
+        <div class="userHomepage">
+          <h1>Welcome Back <%= user.firstname %>!</h1>
+          <h2>Your Messages:</h2>
+          <div class="messagesContainer">
+            <% if (locals.messages.length > 0) {messages.forEach((message) => {
+            %>
+            <div class="message">
+              <b class="messageTitle"><%= message.title %></b>
+              <p class="messageDescription"><%= message.description %></p>
+              <div class="dateAdded">
+                <b>Posted on</b>: <%= message.created_at.getDate()%>-<%=
+                message.created_at.getMonth()+1 %>-<%=
+                message.created_at.getFullYear() %>
+              </div>
+            </div>
+            <% })} else { %>
+            <h1>No messages available. Create a new message to view here!</h1>
+            <% } %>
+          </div>
+        </div>
         <% } else { %>
         <div class="description">
           <p>
@@ -42,9 +61,10 @@
           </p>
           <h2>Join the Community</h2>
           <p>
-            Ready to dive in? <a href="/sign-up">Sign up</a> to become a member or
-            <a href="/login">log in</a> if you're already part of the club. Let's build a space where
-            everyone can share freely—but only members know the full story.
+            Ready to dive in? <a href="/sign-up">Sign up</a> to become a member
+            or <a href="/login">log in</a> if you're already part of the club.
+            Let's build a space where everyone can share freely—but only members
+            know the full story.
           </p>
         </div>
         <%}%>

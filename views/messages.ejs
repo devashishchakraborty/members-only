@@ -10,8 +10,20 @@
         <div class="messagesContainer">
           <% if (locals.messages.length > 0) {messages.forEach((message) => { %>
           <div class="message">
-            <h1 class="messageTitle"><%= message.title %></h1>
+            <b class="messageTitle"><%= message.title %></b>
             <p class="messageDescription"><%= message.description %></p>
+            <% if (locals.user && user.is_member) { %>
+            <div class="metaData">
+              <div class="authorName">
+                <b>Posted by</b>: <%= authorNames[message.creator_id] %>
+              </div>
+              <div class="dateAdded">
+                <b>Posted on</b>: <%= message.created_at.getDate()%>-<%=
+                message.created_at.getMonth()+1 %>-<%=
+                message.created_at.getFullYear() %>
+              </div>
+            </div>
+            <% } %>
           </div>
           <% })} else { %>
           <h1>No messages available. Create a new message to view here!</h1>

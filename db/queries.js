@@ -59,6 +59,10 @@ const deleteMessage = async (id) => {
   await pool.query("DELETE FROM messages WHERE id=$1", [id]);
 };
 
+const activateMembershipStatus = async (id) => {
+  await pool.query("UPDATE users SET is_member = TRUE WHERE id = $1", [id]);
+}
+
 export default {
   getUser,
   getUserByEmail,
@@ -70,4 +74,5 @@ export default {
   insertMessage,
   getMessagesByCreatorId,
   deleteMessage,
+  activateMembershipStatus
 };

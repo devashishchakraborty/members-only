@@ -3,7 +3,17 @@ import queries from "../db/queries.js";
 
 const getMessages = async (req, res) => {
   const messages = await queries.getAllMessages();
-  res.render("messages", { user: req.user, messages: messages });
+  const authors = await queries.getAllUsers();
+  const authorNames = {};
+  authors.forEach(
+    (author) =>
+      (authorNames[author.id] = author.firstname + " " + author.lastname)
+  );
+  res.render("messages", {
+    user: req.user,
+    messages: messages,
+    authorNames: authorNames,
+  });
 };
 
 const messageAddGet = (req, res) => {

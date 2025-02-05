@@ -5,16 +5,17 @@
   </a>
   <nav>
     <a href="/">Home</a>
-    <a href="/messages">Messages</a>
-    <% if (locals.user) { %>
-      <% if (!locals.user.is_member) { %>
-        <a href="/join-club">Join the Club</a>
-        <a href="/messages/add">Create Message</a>  
-      <% } %>
-      <a href="/logout">LOG OUT</a>
+    <a href="/messages">All Messages</a>
+    <% if (locals.user) { %> <% if (!locals.user.is_member) { %>
+    <a href="/join-club">Join the Club</a>
     <% } else { %>
-      <a href="/login">Login</a>
-      <a href="/sign-up">Create new account</a>
-    <% } %> 
+    <a href="/messages/add">Create Message</a>
+
+    <% } %>
+    <a href="/logout">LOG OUT</a>
+    <% } else { %>
+    <a href="/login">Login</a>
+    <a href="/sign-up">Create new account</a>
+    <% } %>
   </nav>
 </header>

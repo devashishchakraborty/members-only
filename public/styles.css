@@ -106,6 +106,13 @@ main {
   margin-top: 1em;
 }
 
+/* Homepage */
+.userHomepage{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 /* Form Section */
 .formContainer {
   display: flex;

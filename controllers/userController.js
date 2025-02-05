@@ -2,6 +2,7 @@ import asyncHandler from "express-async-handler";
 import queries from "../db/queries.js";
 import bcrypt from "bcryptjs";
 import { body, validationResult } from "express-validator";
+import "dotenv/config";
 
 const validateSignUp = [
   body("email")
@@ -19,7 +20,14 @@ const validateSignUp = [
     .withMessage("The passwords do not match"),
 ];
 
-const userLoginGet = (req, res) => res.render("login", { user: req.user });
+const homepageGet = async (req, res) => {
+  const messages = (req.user ? await queries.getMessagesByCreatorId(req.user.id) : null);
+  res.render("index", { user: req.user, messages: messages });
+};
+const userLoginGet = (req, res) => {
+  if (req.user) redirect("/");
+  else res.render("login", { user: req.user });
+};
 const userSignUpGet = (req, res) => res.render("sign-up");
 const userLogoutGet = (req, res, next) => {
   req.logout((err) => {
@@ -29,6 +37,15 @@ const userLogoutGet = (req, res, next) => {
 };
 const userJoinClubGet = (req, res) => {
   if (req.user) res.render("join-club", { user: req.user });
+  else res.redirect("/");
+};
+
+const userJoinClubPost = async (req, res) => {
+  const { passcode } = req.body;
+  if (passcode == process.env.JOIN_CLUB_PASSCODE) {
+    await queries.activateMembershipStatus(req.user.id);
+  }
+  res.redirect("/messages");
 };
 
 const userSignUpPost = [
@@ -48,9 +65,11 @@ const userSignUpPost = [
 ];
 
 export default {
+  homepageGet,
   userLoginGet,
   userSignUpGet,
   userLogoutGet,
   userSignUpPost,
-  userJoinClubGet
+  userJoinClubGet,
+  userJoinClubPost,
 };

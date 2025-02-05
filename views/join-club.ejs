@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/head") %>
+  </head>
+  <body>
+    <div class="appContainer">
+      <%- include("partials/header") %>
+      <main>
+        <div class="formContainer">
+          <h1>Enter Passcode to join the Club</h1>
+          <form action="/join-club" method="post">
+            <div>
+              <label for="passcode">Enter Passcode: </label>
+              <input type="text" name="passcode" id="passcode" required />
+            </div>
+            <button type="submit" class="submitBtn">Submit</button>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
