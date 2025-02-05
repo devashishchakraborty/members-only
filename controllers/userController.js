@@ -14,10 +14,9 @@ const validateSignUp = [
         throw new Error("Email already exists! Try a different one.");
       }
     }),
-    body("confirmPassword")
+  body("confirmPassword")
     .custom((value, { req }) => value === req.body.password)
     .withMessage("The passwords do not match"),
-
 ];
 
 const userLoginGet = (req, res) => res.render("login", { user: req.user });
@@ -27,6 +26,9 @@ const userLogoutGet = (req, res, next) => {
     if (err) return next(err);
     res.redirect("/");
   });
+};
+const userJoinClubGet = (req, res) => {
+  if (req.user) res.render("join-club", { user: req.user });
 };
 
 const userSignUpPost = [
@@ -50,4 +52,5 @@ export default {
   userSignUpGet,
   userLogoutGet,
   userSignUpPost,
+  userJoinClubGet
 };
