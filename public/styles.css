@@ -107,7 +107,7 @@ main {
 }
 
 /* Homepage */
-.userHomepage{
+.userHomepage {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -136,7 +136,8 @@ main {
     }
   }
 
-  input, textarea {
+  input,
+  textarea {
     padding: 4px;
     width: 20rem;
     resize: none;
@@ -171,7 +172,6 @@ main {
   }
 }
 
-
 /* Messages Section */
 .messagesContainer {
   display: grid;
@@ -180,6 +180,7 @@ main {
 }
 
 .messagesContainer .message {
+  position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 2px solid lightgray;
   border-radius: 16px;
@@ -189,6 +190,32 @@ main {
 }
 
 .messagesContainer .message:hover {
-  transform: translateY(-4px);
+  /* transform: translateY(-4px); */
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* DeleteBtn */
+.deleteBtn {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+
+  button {
+    display: flex;
+    align-items: center;
+    color: crimson;
+    border: 2px solid crimson;
+    border-radius: 4px;
+    transition: 0.25s ease background-color, 0.25s ease color;
+    padding: 0.3em;
+
+    svg{
+      height: 1.2em;
+      width: 1.2em;
+    }
+  }
+  button:hover {
+    color: white;
+    background-color: crimson;
+  }
 }

@@ -56,7 +56,7 @@ const insertMessage = async (message, creatorId) => {
 };
 
 const deleteMessage = async (id) => {
-  await pool.query("DELETE FROM messages WHERE id=$1", [id]);
+  await pool.query("DELETE FROM messages WHERE id = $1", [id]);
 };
 
 const activateMembershipStatus = async (id) => {

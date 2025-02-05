@@ -11,10 +11,18 @@
         <div class="userHomepage">
           <h1>Welcome Back <%= user.firstname %>!</h1>
           <h2>Your Messages:</h2>
+          <% if (messages.length === 0) { %>
+          <h1>No messages available. Create a new message to view here!</h1>
+          <% } else { %>
           <div class="messagesContainer">
-            <% if (locals.messages.length > 0) {messages.forEach((message) => {
-            %>
+            <% messages.forEach((message) => { %>
             <div class="message">
+              <a
+                class="deleteBtn"
+                href="/messages/<%= message.id %>/delete"
+              >
+                <%- include("partials/deleteBtn") %>
+              </a>
               <b class="messageTitle"><%= message.title %></b>
               <p class="messageDescription"><%= message.description %></p>
               <div class="dateAdded">
@@ -23,10 +31,9 @@
                 message.created_at.getFullYear() %>
               </div>
             </div>
-            <% })} else { %>
-            <h1>No messages available. Create a new message to view here!</h1>
-            <% } %>
+            <% }) %>
           </div>
+          <% } %>
         </div>
         <% } else { %>
         <div class="description">
